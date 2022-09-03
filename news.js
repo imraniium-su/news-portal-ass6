@@ -19,6 +19,8 @@ const displaynews = datas => {
     });
 
 }
+
+loadnews();
 // show details 
 const showtotalnews = (category_id, catagoriname) => {
     const url = `https://openapi.programming-hero.com/api/news/category/${category_id}`;
@@ -27,7 +29,9 @@ const showtotalnews = (category_id, catagoriname) => {
         .then(data => totaldisplay(data.data, catagoriname))
 
 }
+
 const totaldisplay = (datatotal, catagoriname) => {
+
     const totalid = document.getElementById('diplay-total-news');
     totalid.innerText = `${datatotal.length} items found for category ${catagoriname}`;
     displayid(datatotal);
@@ -95,7 +99,8 @@ const displayid = (news) => {
     }
     togglespiner(false);
 };
-loadnews();
+
+
 // spninner add function  
 const togglespiner = isloading => {
     const loadeersection = document.getElementById('loader');
