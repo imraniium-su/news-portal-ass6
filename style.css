@@ -6,3 +6,11 @@
 .body1 {
     background-color: #F6F6F6;
 }
+
+.text-short {
+    display: -webkit-box;
+
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}

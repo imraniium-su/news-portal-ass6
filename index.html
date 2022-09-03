@@ -17,8 +17,8 @@
     <header class="my-3">
         <nav class="navbar navbar-expand-lg   ">
             <div class="container d-flex justify-content-around " id="home-1">
-                <a class="nav-link active" aria-current="page" href="#"><button
-                        class="bg-info text-white border border-0 rounded rounded-2 me-2 p-2 blo">News</button>BD</a>
+                <a class="nav-link active fw-bold" aria-current="page" href="#"><button
+                        class="bg-info text-white border border-0 rounded rounded-2 me-2 p-2  fw-bold">News</button>BD</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
                     aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -41,7 +41,6 @@
                             <a class="nav-link active" aria-current="page" href="#"><img src="images/download (6).jpg"
                                     class="rounded-circle imgep" alt="..."></a>
                         </li>
-
                     </ul>
                 </div>
             </div>
@@ -55,21 +54,26 @@
         </div>
     </section>
     <div class="input-group mb-3 container my-4">
-        <input type="text" class="form-control border-0 bg-white text-black" placeholder="Ctagory"
-            aria-label="Recipient's username" aria-describedby="basic-addon2">
-
+        <p id="diplay-total-news"></p>
     </div>
     <section>
         <div class=" d-flex justify-content-between container my-4">
             <div>
                 <span class="me-2">Short By View: </span> <button
                     class="text-secondary bg-white border-0 px-2 me-4 px-3 py-1 rounded-1">Defult
-                    <i class="ms-2 fa-duotone fa-angle-down"></i> </button>
+                    <i class="fa-solid fa-arrow-down"></i> </button>
             </div>
             <div>
                 <button class="bg-primary text-white px-2 py-1 me-2 border-0 rounded-1">Today's
                     Pick</button><button class="border-primary text-primary rounded-1">Trending</button>
             </div>
+        </div>
+    </section>
+
+    <!-- news details -->
+    <section class="container my-4">
+        <div id="news-continer" class="col row-cols-1 my-3">
+
         </div>
     </section>
 
