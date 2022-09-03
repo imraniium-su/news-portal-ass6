@@ -19,6 +19,7 @@ const displaynews = datas => {
     });
 
 }
+// show details
 const showtotalnews = (category_id, catagoriname) => {
     const url = `https://openapi.programming-hero.com/api/news/category/${category_id}`;
     fetch(url)
@@ -31,26 +32,6 @@ const totaldisplay = (datatotal, catagoriname) => {
     totalid.innerText = `${datatotal.length} items found for category ${catagoriname}`;
     displayid(datatotal);
 }
-// catagory
-// const catagorylist = catagory_id => {
-//     const url = `https://openapi.programming-hero.com/api/news/category/01`
-//     fetch(url)
-//         .then(res => res.json())
-//         .then(data => catagorydetails(data.data[0]))
-// }
-// const catagorydetails = catagories => {
-//     console.log(catagories);
-//     const catagoriId = document.getElementById('');
-//     catagories.forEach(catagori => {
-//         const catagoridiv = document.createElement('div');
-//         catagoridiv.innerHTML = `
-
-//         `;
-//         catagoriId.appendChild(div)
-//     })
-
-
-// }
 
 // news details
 const newsdetails = category_id => {
