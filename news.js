@@ -19,7 +19,7 @@ const displaynews = datas => {
     });
 
 }
-// show details
+// show details 
 const showtotalnews = (category_id, catagoriname) => {
     const url = `https://openapi.programming-hero.com/api/news/category/${category_id}`;
     fetch(url)
@@ -58,7 +58,7 @@ const displayid = (news) => {
                           <div class="card-body">
                               <h2 class="card-title">${single_news.title}</h2>
                               <p class="card-text text-short">${single_news.details} </p>
-                              <div class="d-flex mt-4 justify-content-around">
+                              <div class="d-flex mt-5 justify-content-around">
                                   <div class="d-flex ">
                                       <div class="me-4">
                                           <img src="${single_news.author.img}" class="rounded-circle imgep" alt="...">
@@ -69,7 +69,7 @@ const displayid = (news) => {
                                       </div>
                                   </div>
                                   <div class=" d-flex  d-grid gap-4">
-                                  <i class="fa-regular fa-eye pt-2"></i>
+                                  <i class="fa-regular fa-eye pt-2 fs-4"></i>
                                       <p class="fs-4 fw-bold">${single_news.total_view}</p>
                                   </div>
                                   <div class="me-5">
@@ -79,10 +79,12 @@ const displayid = (news) => {
                                           <i class="fa-solid fa-star filled "></i>
                                           <i class="fa-solid fa-star filled "></i>
                                           <i class="fa-solid fa-star filled "></i>
-  
-  
                                       </div>
                                   </div>
+                                  <div>
+                                  <button class=" py-1 px-3 border-0"><i class="fa-solid fa-arrow-right "></i></button>
+                            </div>
+                                  
                               </div>
                           </div>
                       </div>
@@ -93,3 +95,23 @@ const displayid = (news) => {
     }
 };
 loadnews();
+//  add modal
+const loadnewsDetails = _id => {
+    const url = `https://openapi.programming-hero.com/api/news/${_id}`;
+    fetch(url)
+        .then(res => res.json())
+        .then(data => displayphonedetials(data.data[0]))
+}
+const displayNewsdetials = News => {
+    const modaltittle = document.getElementById('newsbtnmodal');
+    modaltittle.innerText = News.name;
+    const phonedetails = document.getElementById('newS-details');
+    phonedetails.innerHTML = `
+    <p>Release date : ${phone.relaseDate ? phone.relaseDate : 'no Realeased date Found'}</p>
+    <p> Storage : ${phone.mainFeatures ? phone.mainFeatures.storage : 'No storage information found'} </p>
+    <p>Release date :${phone.others ? phone.others.Bluetooth : 'No bluetooth information'
+        } </p>
+    
+    `
+
+}
