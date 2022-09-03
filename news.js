@@ -45,32 +45,32 @@ const displayid = (news) => {
     console.log(news);
     const newsid = document.getElementById("news-continer");
     newsid.innerHTML = ``;
-    for (const single_news of news) {
+    for (const News of news) {
         const divnews = document.createElement("div");
         divnews.innerHTML = `
       <div class='card mt-3'>
       <div class="row">
                       <div class="col-md-3">
-                          <img src="${single_news.thumbnail_url}" class="img-fluid rounded-start h-100" alt="...">
+                          <img src="${News.thumbnail_url}" class="img-fluid rounded-start h-100" alt="...">
                       </div>
                       <div class="col-md-9 d-flex align-items-center justify-content-center px-5 bg-explore">
   
                           <div class="card-body">
-                              <h2 class="card-title">${single_news.title}</h2>
-                              <p class="card-text text-short">${single_news.details} </p>
+                              <h2 class="card-title">${News.title}</h2>
+                              <p class="card-text text-short">${News.details} </p>
                               <div class="d-flex mt-5 justify-content-around">
                                   <div class="d-flex ">
                                       <div class="me-4">
-                                          <img src="${single_news.author.img}" class="rounded-circle imgep" alt="...">
+                                          <img src="${News.author.img}" class="rounded-circle imgep" alt="...">
                                       </div>
                                       <div>
-                                          <h5>${single_news.author.name}</h5>
-                                          <p>${single_news.author.published_date}</p>
+                                          <h5>${News.author.name}</h5>
+                                          <p>${News.author.published_date}</p>
                                       </div>
                                   </div>
                                   <div class=" d-flex  d-grid gap-4">
                                   <i class="fa-regular fa-eye pt-2 fs-4"></i>
-                                      <p class="fs-4 fw-bold">${single_news.total_view}</p>
+                                      <p class="fs-4 fw-bold">${News.total_view}</p>
                                   </div>
                                   <div class="me-5">
                                       <div>
@@ -82,7 +82,7 @@ const displayid = (news) => {
                                       </div>
                                   </div>
                                   <div>
-                                  <button class=" py-1 px-3 border-0"><i class="fa-solid fa-arrow-right "></i></button>
+                                  <button onclick="loadnewsDetails('${News._id}')" href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa-solid fa-arrow-right "></i></button>
                             </div>
                                   
                               </div>
@@ -93,25 +93,49 @@ const displayid = (news) => {
       `;
         newsid.appendChild(divnews);
     }
+    togglespiner(false);
 };
 loadnews();
+// spninner add function  
+const togglespiner = isloading => {
+    const loadeersection = document.getElementById('loader');
+    if (isloading) {
+        loadeersection.classList.remove('d-none');
+    }
+    else {
+        loadeersection.classList.add('d-none');
+    }
+}
 //  add modal
 const loadnewsDetails = _id => {
     const url = `https://openapi.programming-hero.com/api/news/${_id}`;
     fetch(url)
         .then(res => res.json())
-        .then(data => displayphonedetials(data.data[0]))
+        .then(data => displayNewsdetials(data.data[0]))
 }
 const displayNewsdetials = News => {
+    console.log(News);
     const modaltittle = document.getElementById('newsbtnmodal');
-    modaltittle.innerText = News.name;
+    modaltittle.innerText = `${News.title}`;
     const phonedetails = document.getElementById('newS-details');
     phonedetails.innerHTML = `
-    <p>Release date : ${phone.relaseDate ? phone.relaseDate : 'no Realeased date Found'}</p>
-    <p> Storage : ${phone.mainFeatures ? phone.mainFeatures.storage : 'No storage information found'} </p>
-    <p>Release date :${phone.others ? phone.others.Bluetooth : 'No bluetooth information'
-        } </p>
-    
-    `
+    <img src="${News.thumbnail_url}" class="img-fluid rounded-start h-100 mb-2" alt="...">
+    <p class="card-text text-short">${News.details} </p>
+    <div class="d-flex mt-5 justify-content-around">
+    <div class="d-flex ">
+    <div class="me-4">
+        <img src="${News.author.img}" class="rounded-circle imgep" alt="...">
+    </div>
+    <div>
+        <h5>${News.author.name}</h5>
+        <p>${News.author.published_date}</p>
+    </div>
+</div>
+<div class=" d-flex  d-grid gap-4">
+<i class="fa-regular fa-eye pt-2 fs-4"></i>
+    <p class="fs-4 fw-bold">${News.total_view}</p>
+</div>
+    </div>
+    `;
 
 }
