@@ -57,7 +57,7 @@ const displayid = (news) => {
                       <div class="col-md-3">
                           <img src="${News.thumbnail_url}" class="img-fluid rounded-start h-100" alt="...">
                       </div>
-                      <div class="col-md-9 d-flex align-items-center justify-content-center px-5 bg-explore">
+                      <div class="col-md-9 d-flex align-items-start justify-content-center px-3 bg-explore">
   
                           <div class="card-body">
                               <h2 class="card-title">${News.title}</h2>
@@ -69,14 +69,14 @@ const displayid = (news) => {
                                       </div>
                                       <div>
                                           <h5>${News.author.name}</h5>
-                                          <p>${News.author.published_date}</p>
+                                          <p class="d-none d-lg-block ">${News.author.published_date}</p>
                                       </div>
                                   </div>
                                   <div class=" d-flex  d-grid gap-4">
-                                  <i class="fa-regular fa-eye pt-2 fs-4"></i>
-                                      <p class="fs-4 fw-bold">${News.total_view}</p>
+                                  <i class="fa-regular fa-eye pt-2 fs-4 d-none d-lg-block "></i>
+                                      <p class="fs-4 fw-bold d-none d-lg-block">${News.total_view}</p>
                                   </div>
-                                  <div class="me-5">
+                                  <div class="me-5 d-none d-lg-block ">
                                       <div>
                                           <i class="fa-solid fa-star-half-stroke "></i>
                                           <i class="fa-solid fa-star filled "></i>
